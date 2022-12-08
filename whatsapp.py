@@ -8,7 +8,6 @@ from platform import system
 import pyautogui as pg
 
 '''pip install pyautogui'''
-'''python3 pip install pyautogui'''
 
 
 class WhatsappMessage:
@@ -83,8 +82,8 @@ if __name__ == '__main__':
 
     send_msg.Send_msg_instant(
             phone_no='+5574981199190', 
-            message='Oi, tudo bem?', 
-            wait_time=1, 
+            message='Olá Lucas, como vai? Gostaria de bater um papo contigo...', 
+            wait_time=2, 
             tab_close=True, 
-            close_time=2
+            close_time=3
         )

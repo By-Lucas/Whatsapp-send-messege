@@ -1,6 +1,6 @@
 # AUTOMATION : SEND MESSEGE WHATSAPP
 
-<img src='send-msg-whatsapp-automation'>
+<img src='send-msg-whatsapp-automation.gif'>
 
 #
 

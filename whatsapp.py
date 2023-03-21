@@ -55,7 +55,7 @@ class WhatsappMessage:
         #click(self.WIDTH / 2, self.HEIGHT / 2)
         time.sleep(wait_time)
         pg.press("enter")
-        print(datetime.datetime.now(), phone_no, message)
+        print('Mensagem enviada : ', datetime.datetime.now(), phone_no, message)
         if tab_close:
             self.close_tab(wait_time=close_time)
 
@@ -79,11 +79,22 @@ class CountryCodeException(Exception):
 
 if __name__ == '__main__':
     send_msg = WhatsappMessage()
-
-    send_msg.Send_msg_instant(
-            phone_no='+5574981199190', 
-            message='Olá Lucas, como vai? Gostaria de bater um papo contigo...', 
-            wait_time=2, 
-            tab_close=True, 
-            close_time=3
-        )
+    
+    message = ''
+    contacts = []
+    
+    with open('mensagem.txt', 'r', encoding='utf-8') as f:
+        message = f.read()
+    
+    with open('contatos.txt', 'r', encoding='utf-8') as f:
+        contacts = f.readlines()
+    
+    for contact in contacts:
+        send_msg.Send_msg_instant(
+                phone_no='+55'+contact, 
+                message=message, 
+                wait_time=4, 
+                tab_close=True, 
+                close_time=3
+            )
+        time.sleep(7)

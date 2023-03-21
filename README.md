@@ -21,5 +21,5 @@ pip install -r requirements.txt
 
 ## Execute
 ~~~execute
-python main.py
+python whatsapp.py
 ~~~

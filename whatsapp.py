@@ -41,6 +41,7 @@ class WhatsappMessage:
         self,
         phone_no: str,
         message: str,
+        image_path: str,
         wait_time: int = 15,
         tab_close: bool = False,
         close_time: int = 3,
@@ -54,10 +55,23 @@ class WhatsappMessage:
         time.sleep(4)
         #click(self.WIDTH / 2, self.HEIGHT / 2)
         time.sleep(wait_time)
+        image_1 = pg.locateOnScreen('images/1.png', confidence=0.9, grayscale=True, limit=10)
+        pg.click(image_1)
+        time.sleep(1)
+        
+        image_2 = pg.locateOnScreen('images/2.png', confidence=0.9, grayscale=True, limit=10)
+        pg.click(image_2)
+        pg.write(image_path)
+        
+        time.sleep(1)
         pg.press("enter")
-        print('Mensagem enviada : ', datetime.datetime.now(), phone_no, message)
+        
+        time.sleep(3)
+        pg.press("enter")
+        
+        print('Mensagem enviada para : ',phone_no)
         if tab_close:
-            self.close_tab(wait_time=close_time)
+           self.close_tab(wait_time=close_time)
 
 
     def open_web() -> bool:
@@ -93,6 +107,7 @@ if __name__ == '__main__':
         send_msg.Send_msg_instant(
                 phone_no='+55'+contact, 
                 message=message, 
+                image_path='imagem.png',
                 wait_time=4, 
                 tab_close=True, 
                 close_time=3
